@@ -17,9 +17,10 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f6f8fc;
-      color: #1f2937;
+      background: #07111f;
+      color: white;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -29,120 +30,217 @@
 
     .container {
       width: 90%;
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
     }
 
     .hero {
-      background: linear-gradient(135deg, #0f172a, #1e3a8a, #334155);
-      color: white;
-      padding: 80px 20px 70px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(-45deg, #081120, #13294b, #3b1f6b, #0a1527);
+      background-size: 400% 400%;
+      animation: gradientMove 14s ease infinite;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 20px;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.35;
+      animation: blobMove 10s ease-in-out infinite;
+    }
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      background: #60a5fa;
+      top: 8%;
+      left: 5%;
+    }
+
+    .hero::after {
+      width: 300px;
+      height: 300px;
+      background: #a855f7;
+      bottom: 8%;
+      right: 6%;
+      animation-delay: 2s;
     }
 
     .hero-content {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      flex-wrap: wrap;
+      width: 100%;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 12px;
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+      animation: fadeUp 1s ease;
     }
 
-    .hero p.tagline {
-      font-size: 1.2rem;
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
       margin-bottom: 18px;
+      font-size: 0.95rem;
       color: #dbeafe;
     }
 
-    .hero .contact-line {
-      font-size: 1rem;
-      color: #e5e7eb;
-      margin-bottom: 28px;
+    .hero-text h1 {
+      font-size: 3.8rem;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero-text .tagline {
+      font-size: 1.2rem;
+      color: #dbeafe;
+      margin-bottom: 16px;
+      max-width: 650px;
+    }
+
+    .hero-text .contact-line {
+      color: #cbd5e1;
+      margin-bottom: 24px;
     }
 
     .hero-buttons {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
       gap: 14px;
+      margin-top: 18px;
     }
 
     .btn {
       padding: 12px 22px;
       border-radius: 999px;
       font-weight: bold;
-      transition: 0.25s ease;
+      transition: 0.3s ease;
       display: inline-block;
     }
 
     .btn-primary {
       background: white;
       color: #0f172a;
+      box-shadow: 0 0 24px rgba(255,255,255,0.18);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      opacity: 0.95;
+      transform: translateY(-4px) scale(1.03);
     }
 
     .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.4);
-      color: white;
+      border: 1px solid rgba(255,255,255,0.35);
       background: rgba(255,255,255,0.08);
+      color: white;
+      backdrop-filter: blur(8px);
     }
 
     .btn-secondary:hover {
-      transform: translateY(-2px);
+      transform: translateY(-4px) scale(1.03);
       background: rgba(255,255,255,0.15);
     }
 
+    .hero-image {
+      flex: 0.9;
+      min-width: 270px;
+      display: flex;
+      justify-content: center;
+      animation: floatImage 4.5s ease-in-out infinite;
+    }
+
+    .image-ring {
+      padding: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(96,165,250,0.8), rgba(168,85,247,0.7));
+      box-shadow: 0 0 45px rgba(96,165,250,0.35);
+    }
+
+    .hero-image img {
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      border: 6px solid rgba(255,255,255,0.2);
+      background: #fff;
+    }
+
     section {
-      padding: 60px 0;
+      padding: 80px 0;
+      position: relative;
     }
 
     .section-title {
       font-size: 2rem;
-      margin-bottom: 20px;
-      color: #0f172a;
+      margin-bottom: 22px;
+      color: #ffffff;
     }
 
     .section-subtitle {
-      color: #475569;
-      margin-bottom: 30px;
+      color: #cbd5e1;
+      margin-bottom: 28px;
       max-width: 760px;
     }
 
     .card {
-      background: white;
-      border-radius: 20px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
       padding: 28px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
       margin-bottom: 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
     }
 
     .summary {
-      font-size: 1.05rem;
-      color: #334155;
+      color: #e2e8f0;
+      font-size: 1.04rem;
     }
 
     .education-item,
     .experience-item {
-      margin-bottom: 26px;
+      margin-bottom: 20px;
+    }
+
+    .education-item:last-child,
+    .experience-item:last-child {
+      margin-bottom: 0;
     }
 
     .education-item h3,
     .experience-item h3 {
-      font-size: 1.2rem;
-      color: #111827;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      color: #ffffff;
+      font-size: 1.15rem;
     }
 
     .meta {
-      color: #475569;
-      font-size: 0.97rem;
+      color: #cbd5e1;
       margin-bottom: 10px;
+      font-size: 0.97rem;
     }
 
     ul {
@@ -151,56 +249,68 @@
 
     li {
       margin-bottom: 8px;
-      color: #334155;
+      color: #e2e8f0;
+    }
+
+    .projects-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 22px;
+      transition: 0.35s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px) rotate(-1deg);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.24);
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .project-card p {
+      color: #dbeafe;
     }
 
     .skills-grid,
     .cert-grid,
-    .lang-grid,
-    .project-grid {
+    .lang-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
     }
 
     .chip {
-      background: #e2e8f0;
-      color: #0f172a;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: white;
       padding: 10px 16px;
       border-radius: 999px;
       font-size: 0.95rem;
-      font-weight: 600;
+      transition: 0.3s ease;
     }
 
-    .projects-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
-    }
-
-    .project-card h3 {
-      margin-bottom: 10px;
-      color: #0f172a;
-    }
-
-    .project-card p {
-      color: #475569;
-      font-size: 0.98rem;
+    .chip:hover {
+      transform: scale(1.08);
+      background: rgba(255,255,255,0.2);
     }
 
     .contact-box {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
-      border-radius: 24px;
-      padding: 35px;
+      background: linear-gradient(135deg, rgba(30,58,138,0.72), rgba(15,23,42,0.95));
+      border-radius: 26px;
+      padding: 38px;
       text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.24);
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .contact-box p {
@@ -210,22 +320,80 @@
 
     .footer {
       text-align: center;
-      padding: 26px 10px 40px;
-      color: #64748b;
+      padding: 30px 10px 40px;
+      color: #cbd5e1;
       font-size: 0.95rem;
     }
 
+    .fade-section {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: all 0.9s ease;
+    }
+
+    .fade-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatImage {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-14px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes blobMove {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(20px, -20px) scale(1.08); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.2rem;
+      .hero {
+        padding-top: 44px;
+      }
+
+      .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image img {
+        width: 240px;
+        height: 240px;
       }
 
       .section-title {
         font-size: 1.6rem;
       }
 
-      .hero .contact-line {
-        font-size: 0.95rem;
+      .contact-box {
+        padding: 28px;
       }
     }
   </style>
@@ -233,19 +401,28 @@
 <body>
 
   <header class="hero">
-    <div class="hero-content">
-      <h1>Suman Bhandari</h1>
-      <p class="tagline">MBA Candidate | Project & People Leadership | Driven by Creativity and Impact</p>
-      <p class="contact-line">Wheat Ridge, CO | +1 (929) 349-8176 | summbhan@gmail.com</p>
-      <div class="hero-buttons">
-        <a href="#experience" class="btn btn-primary">View Experience</a>
-        <a href="#projects" class="btn btn-secondary">View Projects</a>
-        <a href="#contact" class="btn btn-secondary">Contact</a>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">MBA Candidate • Project & People Leadership</div>
+        <h1>Suman Bhandari</h1>
+        <p class="tagline">Driven by creativity, impact, and people-centered leadership in HR, operations, and professional growth.</p>
+        <p class="contact-line">Wheat Ridge, CO | +1 (929) 349-8176 | summbhan@gmail.com</p>
+        <div class="hero-buttons">
+          <a href="#experience" class="btn btn-primary">View Experience</a>
+          <a href="#projects" class="btn btn-secondary">Projects</a>
+          <a href="#contact" class="btn btn-secondary">Contact</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="image-ring">
+          <img src="profile.jpg" alt="Suman Bhandari">
+        </div>
       </div>
     </div>
   </header>
 
-  <section>
+  <section class="fade-section">
     <div class="container">
       <h2 class="section-title">Professional Summary</h2>
       <div class="card">
@@ -260,7 +437,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="fade-section">
     <div class="container">
       <h2 class="section-title">Education</h2>
       <div class="card">
@@ -268,7 +445,6 @@
           <h3>Regis University, Denver, CO</h3>
           <p class="meta">Master of Business Administration – Project Leadership & Management | Expected December 2026</p>
         </div>
-
         <div class="education-item">
           <h3>Forbes College / University of Computer Sciences and Skills, Poland</h3>
           <p class="meta">Bachelor of Management in Hospitality | Graduated 2022</p>
@@ -277,11 +453,11 @@
     </div>
   </section>
 
-  <section id="experience">
+  <section id="experience" class="fade-section">
     <div class="container">
       <h2 class="section-title">Professional Experience</h2>
 
-      <div class="card experience-item">
+      <div class="card">
         <h3>Daraz (Alibaba Group) – Kathmandu, Nepal</h3>
         <p class="meta">HRBP Specialist | Dec 2023 – Dec 2024</p>
         <ul>
@@ -293,7 +469,7 @@
         </ul>
       </div>
 
-      <div class="card experience-item">
+      <div class="card">
         <h3>Chaudhary Group (CG Corp Global) – Kathmandu, Nepal</h3>
         <p class="meta">HRBP – Corporate Office | Jun 2022 – Dec 2023</p>
         <ul>
@@ -304,7 +480,7 @@
         </ul>
       </div>
 
-      <div class="card experience-item">
+      <div class="card">
         <h3>CG Hospitality – Meghauli Serai (Taj Safaris)</h3>
         <p class="meta">HR Executive (Intern-to-Full Time) | Jun 2021 – May 2022</p>
         <ul>
@@ -314,7 +490,7 @@
         </ul>
       </div>
 
-      <div class="card experience-item">
+      <div class="card">
         <h3>Nepal Can Move (NCM)</h3>
         <p class="meta">HR Intern | May 2022 – Jun 2022</p>
         <ul>
@@ -323,7 +499,7 @@
         </ul>
       </div>
 
-      <div class="card experience-item">
+      <div class="card">
         <h3>JW Marriott Marquis, Dubai</h3>
         <p class="meta">HR & Guest Services Intern | May 2021 – May 2022</p>
         <ul>
@@ -334,33 +510,33 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="fade-section">
     <div class="container">
       <h2 class="section-title">Featured Projects</h2>
       <p class="section-subtitle">
-        Add your best academic and leadership work here. These project cards will make your website look much stronger for internships and recruiters.
+        Add your best academic, leadership, and HR-related projects here to make the portfolio stronger for internships and professional opportunities.
       </p>
 
       <div class="projects-wrapper">
         <div class="project-card">
           <h3>HR Process Improvement Project</h3>
-          <p>Showcase a project where you improved workflow, coordination, documentation, or employee systems.</p>
+          <p>Showcase workflow improvement, documentation structure, and employee system enhancement.</p>
         </div>
 
         <div class="project-card">
           <h3>Employee Engagement Initiative</h3>
-          <p>Add your Joy @ Work or similar engagement work to show leadership, planning, and people skills.</p>
+          <p>Highlight programs like Joy @ Work to show leadership, communication, and people skills.</p>
         </div>
 
         <div class="project-card">
           <h3>Academic Leadership Project</h3>
-          <p>Include one MBA or university project that reflects analysis, teamwork, communication, and presentation ability.</p>
+          <p>Add an MBA project that reflects teamwork, analysis, and presentation ability.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section>
+  <section class="fade-section">
     <div class="container">
       <h2 class="section-title">Skills</h2>
       <div class="card">
@@ -382,7 +558,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="fade-section">
     <div class="container">
       <h2 class="section-title">Training & Certifications</h2>
       <div class="card">
@@ -396,7 +572,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="fade-section">
     <div class="container">
       <h2 class="section-title">Languages</h2>
       <div class="card">
@@ -411,12 +587,12 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="fade-section">
     <div class="container">
       <div class="contact-box">
         <h2>Let’s Connect</h2>
-        <p>You can add your LinkedIn link and resume download here next.</p>
-        <div class="hero-buttons">
+        <p>Add your LinkedIn link and resume next to make this even stronger.</p>
+        <div class="hero-buttons" style="justify-content:center;">
           <a href="mailto:summbhan@gmail.com" class="btn btn-primary">Email Me</a>
           <a href="https://www.linkedin.com/" target="_blank" class="btn btn-secondary">LinkedIn</a>
         </div>
@@ -428,5 +604,642 @@
     © 2026 Suman Bhandari
   </div>
 
+  <script>
+    const faders = document.querySelectorAll('.fade-section');
+
+    const appearOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    faders.forEach((section) => {
+      appearOnScroll.observe(section);
+    });
+  </script>
 </body>
-</html>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suman Bhandari | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(-45deg, #081120, #13294b, #3b1f6b, #0a1527);
+      background-size: 400% 400%;
+      animation: gradientMove 14s ease infinite;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 20px;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.35;
+      animation: blobMove 10s ease-in-out infinite;
+    }
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      background: #60a5fa;
+      top: 8%;
+      left: 5%;
+    }
+
+    .hero::after {
+      width: 300px;
+      height: 300px;
+      background: #a855f7;
+      bottom: 8%;
+      right: 6%;
+      animation-delay: 2s;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+      color: #dbeafe;
+    }
+
+    .hero-text h1 {
+      font-size: 3.8rem;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero-text .tagline {
+      font-size: 1.2rem;
+      color: #dbeafe;
+      margin-bottom: 16px;
+      max-width: 650px;
+    }
+
+    .hero-text .contact-line {
+      color: #cbd5e1;
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #0f172a;
+      box-shadow: 0 0 24px rgba(255,255,255,0.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.08);
+      color: white;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-4px) scale(1.03);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .hero-image {
+      flex: 0.9;
+      min-width: 270px;
+      display: flex;
+      justify-content: center;
+      animation: floatImage 4.5s ease-in-out infinite;
+    }
+
+    .image-ring {
+      padding: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(96,165,250,0.8), rgba(168,85,247,0.7));
+      box-shadow: 0 0 45px rgba(96,165,250,0.35);
+    }
+
+    .hero-image img {
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      border: 6px solid rgba(255,255,255,0.2);
+      background: #fff;
+    }
+
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 22px;
+      color: #ffffff;
+    }
+
+    .section-subtitle {
+      color: #cbd5e1;
+      margin-bottom: 28px;
+      max-width: 760px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      margin-bottom: 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    }
+
+    .summary {
+      color: #e2e8f0;
+      font-size: 1.04rem;
+    }
+
+    .education-item,
+    .experience-item {
+      margin-bottom: 20px;
+    }
+
+    .education-item:last-child,
+    .experience-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .education-item h3,
+    .experience-item h3 {
+      margin-bottom: 6px;
+      color: #ffffff;
+      font-size: 1.15rem;
+    }
+
+    .meta {
+      color: #cbd5e1;
+      margin-bottom: 10px;
+      font-size: 0.97rem;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #e2e8f0;
+    }
+
+    .projects-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 22px;
+      transition: 0.35s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px) rotate(-1deg);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.24);
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .project-card p {
+      color: #dbeafe;
+    }
+
+    .skills-grid,
+    .cert-grid,
+    .lang-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chip {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      transition: 0.3s ease;
+    }
+
+    .chip:hover {
+      transform: scale(1.08);
+      background: rgba(255,255,255,0.2);
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, rgba(30,58,138,0.72), rgba(15,23,42,0.95));
+      border-radius: 26px;
+      padding: 38px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.24);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .contact-box p {
+      color: #dbeafe;
+      margin: 12px 0 24px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 10px 40px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .fade-section {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: all 0.9s ease;
+    }
+
+    .fade-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatImage {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-14px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes blobMove {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(20px, -20px) scale(1.08); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: 44px;
+      }
+
+      .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image img {
+        width: 240px;
+        height: 240px;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .contact-box {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">MBA Candidate • Project & People Leadership</div>
+        <h1>Suman Bhandari</h1>
+        <p class="tagline">Driven by creativity, impact, and people-centered leadership in HR, operations, and professional growth.</p>
+        <p class="contact-line">Wheat Ridge, CO | +1 (929) 349-8176 | summbhan@gmail.com</p>
+        <div class="hero-buttons">
+          <a href="#experience" class="btn btn-primary">View Experience</a>
+          <a href="#projects" class="btn btn-secondary">Projects</a>
+          <a href="#contact" class="btn btn-secondary">Contact</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="image-ring">
+          <img src="dp.jpg" alt="Suman Bhandari">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="fade-section">
+    <div class="container">
+      <h2 class="section-title">Professional Summary</h2>
+      <div class="card">
+        <p class="summary">
+          Inspired and flexible MBA student majoring in Project Leadership and Management with around
+          three years of experience in HR functions, project management, and organizational development
+          in multinational contexts including Alibaba Group and CG Corp Global. Experienced in stakeholder
+          coordination, process enhancement, and employee engagement. Passionate about people-centered leadership
+          and seeking opportunities to apply strategic, analytical, and collaborative skills in dynamic organizations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-section">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="card">
+        <div class="education-item">
+          <h3>Regis University, Denver, CO</h3>
+          <p class="meta">Master of Business Administration – Project Leadership & Management | Expected December 2026</p>
+        </div>
+        <div class="education-item">
+          <h3>Forbes College / University of Computer Sciences and Skills, Poland</h3>
+          <p class="meta">Bachelor of Management in Hospitality | Graduated 2022</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="fade-section">
+    <div class="container">
+      <h2 class="section-title">Professional Experience</h2>
+
+      <div class="card">
+        <h3>Daraz (Alibaba Group) – Kathmandu, Nepal</h3>
+        <p class="meta">HRBP Specialist | Dec 2023 – Dec 2024</p>
+        <ul>
+          <li>Balanced HR operations for 500+ employees including onboarding, payroll, and attendance management.</li>
+          <li>Served as a liaison for the Voluntary Resignation Scheme (VRS) to ensure smooth and compliant execution.</li>
+          <li>Led HR processes for strategic initiatives such as the 11.11 Campaign and Free Delivery Initiative.</li>
+          <li>Increased employee participation through Joy @ Work programs and grievance resolution systems.</li>
+          <li>Managed HR databases, vendor coordination, and policy updates to support workflow efficiency.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Chaudhary Group (CG Corp Global) – Kathmandu, Nepal</h3>
+        <p class="meta">HRBP – Corporate Office | Jun 2022 – Dec 2023</p>
+        <ul>
+          <li>Managed recruiting, onboarding, and succession planning across several business verticals.</li>
+          <li>Created KPI systems, HR reports, and organizational charts using MS Visio.</li>
+          <li>Planned and hosted learning and engagement activities to improve cross-departmental collaboration.</li>
+          <li>Supported policy changes, training initiatives, and HR process documentation.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>CG Hospitality – Meghauli Serai (Taj Safaris)</h3>
+        <p class="meta">HR Executive (Intern-to-Full Time) | Jun 2021 – May 2022</p>
+        <ul>
+          <li>Handled recruitment, employee records, payroll management, and employee performance processes.</li>
+          <li>Supported employee training, termination processes, and HR reporting for 100+ employees.</li>
+          <li>Conducted involvement and training initiatives to strengthen morale and retention.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Nepal Can Move (NCM)</h3>
+        <p class="meta">HR Intern | May 2022 – Jun 2022</p>
+        <ul>
+          <li>Supported logistics team recruitment, route planning, and staff attendance systems.</li>
+          <li>Maintained complaint management and documentation processes.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>JW Marriott Marquis, Dubai</h3>
+        <p class="meta">HR & Guest Services Intern | May 2021 – May 2022</p>
+        <ul>
+          <li>Supported orientation and onboarding for 200+ employees across departments.</li>
+          <li>Organized learning courses and maintained HR and training records.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="fade-section">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        Add your best academic, leadership, and HR-related projects here to make the portfolio stronger for internships and professional opportunities.
+      </p>
+
+      <div class="projects-wrapper">
+        <div class="project-card">
+          <h3>HR Process Improvement Project</h3>
+          <p>Showcase workflow improvement, documentation structure, and employee system enhancement.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Employee Engagement Initiative</h3>
+          <p>Highlight programs like Joy @ Work to show leadership, communication, and people skills.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Academic Leadership Project</h3>
+          <p>Add an MBA project that reflects teamwork, analysis, and presentation ability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-section">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="card">
+        <div class="skills-grid">
+          <span class="chip">Project Coordination</span>
+          <span class="chip">HR Operations</span>
+          <span class="chip">Employee Engagement</span>
+          <span class="chip">Process Improvement</span>
+          <span class="chip">Database Management</span>
+          <span class="chip">Excel</span>
+          <span class="chip">MS Office</span>
+          <span class="chip">Canva</span>
+          <span class="chip">HRIS</span>
+          <span class="chip">Event Organization</span>
+          <span class="chip">Communication</span>
+          <span class="chip">Presentation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-section">
+    <div class="container">
+      <h2 class="section-title">Training & Certifications</h2>
+      <div class="card">
+        <div class="cert-grid">
+          <span class="chip">Innovation Management and Business Model Training</span>
+          <span class="chip">Social Security Fund (SSF) Training</span>
+          <span class="chip">Public Speaking & Presentation Training</span>
+          <span class="chip">JW Marriott “Symphony of Service” Training</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-section">
+    <div class="container">
+      <h2 class="section-title">Languages</h2>
+      <div class="card">
+        <div class="lang-grid">
+          <span class="chip">English (Fluent)</span>
+          <span class="chip">Nepali (Fluent)</span>
+          <span class="chip">Hindi (Fluent)</span>
+          <span class="chip">Chinese (Intermediate)</span>
+          <span class="chip">Spanish (Learning)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-section">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Let’s Connect</h2>
+        <p>Add your LinkedIn link and resume next to make this even stronger.</p>
+        <div class="hero-buttons" style="justify-content:center;">
+          <a href="mailto:summbhan@gmail.com" class="btn btn-primary">Email Me</a>
+          <a href="https://www.linkedin.com/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    © 2026 Suman Bhandari
+  </div>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-section');
+
+    const appearOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    faders.forEach((section) => {
+      appearOnScroll.observe(section);
+    });
+  </script>
+</body>
+</html>v
