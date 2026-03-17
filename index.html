@@ -1,150 +1,432 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Suman Bhandari | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suman Bhandari | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
-body{
-font-family: Arial;
-margin:0;
-background:#f5f5f5;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-header{
-background:#111;
-color:white;
-padding:40px;
-text-align:center;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f8fc;
+      color: #1f2937;
+      line-height: 1.6;
+    }
 
-section{
-padding:40px;
-max-width:900px;
-margin:auto;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-h2{
-border-bottom:2px solid #ddd;
-padding-bottom:10px;
-}
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-.job{
-margin-bottom:25px;
-}
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a, #334155);
+      color: white;
+      padding: 80px 20px 70px;
+    }
 
-.skills span{
-background:#222;
-color:white;
-padding:6px 12px;
-margin:5px;
-display:inline-block;
-border-radius:20px;
-font-size:14px;
-}
+    .hero-content {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
 
-footer{
-text-align:center;
-padding:30px;
-background:#111;
-color:white;
-}
-</style>
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .hero p.tagline {
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+      color: #dbeafe;
+    }
+
+    .hero .contact-line {
+      font-size: 1rem;
+      color: #e5e7eb;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: 0.25s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.4);
+      color: white;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.15);
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    .section-subtitle {
+      color: #475569;
+      margin-bottom: 30px;
+      max-width: 760px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      margin-bottom: 24px;
+    }
+
+    .summary {
+      font-size: 1.05rem;
+      color: #334155;
+    }
+
+    .education-item,
+    .experience-item {
+      margin-bottom: 26px;
+    }
+
+    .education-item h3,
+    .experience-item h3 {
+      font-size: 1.2rem;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+
+    .meta {
+      color: #475569;
+      font-size: 0.97rem;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    .skills-grid,
+    .cert-grid,
+    .lang-grid,
+    .project-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chip {
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .projects-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .project-card p {
+      color: #475569;
+      font-size: 0.98rem;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      border-radius: 24px;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .contact-box p {
+      color: #dbeafe;
+      margin: 12px 0 24px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 26px 10px 40px;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .hero .contact-line {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<h1>Suman Bhandari</h1>
-<p>MBA Candidate | Project & People Leadership | HR & Operations</p>
-<p>Wheat Ridge, CO | summbhan@gmail.com</p>
-</header>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Suman Bhandari</h1>
+      <p class="tagline">MBA Candidate | Project & People Leadership | Driven by Creativity and Impact</p>
+      <p class="contact-line">Wheat Ridge, CO | +1 (929) 349-8176 | summbhan@gmail.com</p>
+      <div class="hero-buttons">
+        <a href="#experience" class="btn btn-primary">View Experience</a>
+        <a href="#projects" class="btn btn-secondary">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Contact</a>
+      </div>
+    </div>
+  </header>
 
-<section>
-<h2>Professional Summary</h2>
-<p>
-MBA student specializing in Project Leadership and Management with experience in HR operations,
-employee engagement, and organizational development within multinational companies including
-Alibaba Group and CG Corp Global. Passionate about people-centered leadership and process improvement.
-</p>
-</section>
+  <section>
+    <div class="container">
+      <h2 class="section-title">Professional Summary</h2>
+      <div class="card">
+        <p class="summary">
+          Inspired and flexible MBA student majoring in Project Leadership and Management with around
+          three years of experience in HR functions, project management, and organizational development
+          in multinational contexts including Alibaba Group and CG Corp Global. Experienced in stakeholder
+          coordination, process enhancement, and employee engagement. Passionate about people-centered leadership
+          and seeking opportunities to apply strategic, analytical, and collaborative skills in dynamic organizations.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<section>
-<h2>Education</h2>
+  <section>
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="card">
+        <div class="education-item">
+          <h3>Regis University, Denver, CO</h3>
+          <p class="meta">Master of Business Administration – Project Leadership & Management | Expected December 2026</p>
+        </div>
 
-<p><b>Regis University – Denver, CO</b><br>
-MBA – Project Leadership & Management (Expected Dec 2026)</p>
+        <div class="education-item">
+          <h3>Forbes College / University of Computer Sciences and Skills, Poland</h3>
+          <p class="meta">Bachelor of Management in Hospitality | Graduated 2022</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p><b>Forbes College – Poland</b><br>
-Bachelor of Management in Hospitality (2022)</p>
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Professional Experience</h2>
 
-</section>
+      <div class="card experience-item">
+        <h3>Daraz (Alibaba Group) – Kathmandu, Nepal</h3>
+        <p class="meta">HRBP Specialist | Dec 2023 – Dec 2024</p>
+        <ul>
+          <li>Balanced HR operations for 500+ employees including onboarding, payroll, and attendance management.</li>
+          <li>Served as a liaison for the Voluntary Resignation Scheme (VRS) to ensure smooth and compliant execution.</li>
+          <li>Led HR processes for strategic initiatives such as the 11.11 Campaign and Free Delivery Initiative.</li>
+          <li>Increased employee participation through Joy @ Work programs and grievance resolution systems.</li>
+          <li>Managed HR databases, vendor coordination, and policy updates to support workflow efficiency.</li>
+        </ul>
+      </div>
 
-<section>
-<h2>Professional Experience</h2>
+      <div class="card experience-item">
+        <h3>Chaudhary Group (CG Corp Global) – Kathmandu, Nepal</h3>
+        <p class="meta">HRBP – Corporate Office | Jun 2022 – Dec 2023</p>
+        <ul>
+          <li>Managed recruiting, onboarding, and succession planning across several business verticals.</li>
+          <li>Created KPI systems, HR reports, and organizational charts using MS Visio.</li>
+          <li>Planned and hosted learning and engagement activities to improve cross-departmental collaboration.</li>
+          <li>Supported policy changes, training initiatives, and HR process documentation.</li>
+        </ul>
+      </div>
 
-<div class="job">
-<b>Daraz (Alibaba Group)</b> – HRBP Specialist<br>
-Dec 2023 – Dec 2024
-<ul>
-<li>Managed HR operations for 500+ employees including onboarding and payroll.</li>
-<li>Handled employee engagement programs and grievance systems.</li>
-<li>Led HR initiatives including company campaigns and delivery initiatives.</li>
-</ul>
-</div>
+      <div class="card experience-item">
+        <h3>CG Hospitality – Meghauli Serai (Taj Safaris)</h3>
+        <p class="meta">HR Executive (Intern-to-Full Time) | Jun 2021 – May 2022</p>
+        <ul>
+          <li>Handled recruitment, employee records, payroll management, and employee performance processes.</li>
+          <li>Supported employee training, termination processes, and HR reporting for 100+ employees.</li>
+          <li>Conducted involvement and training initiatives to strengthen morale and retention.</li>
+        </ul>
+      </div>
 
-<div class="job">
-<b>Chaudhary Group (CG Corp Global)</b> – HRBP<br>
-Jun 2022 – Dec 2023
-<ul>
-<li>Managed recruitment, onboarding and succession planning.</li>
-<li>Developed HR reports, KPI systems and organization charts.</li>
-<li>Led employee learning and engagement activities.</li>
-</ul>
-</div>
+      <div class="card experience-item">
+        <h3>Nepal Can Move (NCM)</h3>
+        <p class="meta">HR Intern | May 2022 – Jun 2022</p>
+        <ul>
+          <li>Supported logistics team recruitment, route planning, and staff attendance systems.</li>
+          <li>Maintained complaint management and documentation processes.</li>
+        </ul>
+      </div>
 
-<div class="job">
-<b>CG Hospitality – Taj Safaris</b> – HR Executive<br>
-Jun 2021 – May 2022
-<ul>
-<li>Handled recruitment, payroll and employee records.</li>
-<li>Conducted employee training and HR reporting.</li>
-</ul>
-</div>
+      <div class="card experience-item">
+        <h3>JW Marriott Marquis, Dubai</h3>
+        <p class="meta">HR & Guest Services Intern | May 2021 – May 2022</p>
+        <ul>
+          <li>Supported orientation and onboarding for 200+ employees across departments.</li>
+          <li>Organized learning courses and maintained HR and training records.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        Add your best academic and leadership work here. These project cards will make your website look much stronger for internships and recruiters.
+      </p>
 
-<section>
-<h2>Skills</h2>
+      <div class="projects-wrapper">
+        <div class="project-card">
+          <h3>HR Process Improvement Project</h3>
+          <p>Showcase a project where you improved workflow, coordination, documentation, or employee systems.</p>
+        </div>
 
-<div class="skills">
-<span>HR Operations</span>
-<span>Project Coordination</span>
-<span>Employee Engagement</span>
-<span>Process Improvement</span>
-<span>Excel</span>
-<span>HRIS</span>
-<span>Presentation</span>
-<span>Communication</span>
-</div>
+        <div class="project-card">
+          <h3>Employee Engagement Initiative</h3>
+          <p>Add your Joy @ Work or similar engagement work to show leadership, planning, and people skills.</p>
+        </div>
 
-</section>
+        <div class="project-card">
+          <h3>Academic Leadership Project</h3>
+          <p>Include one MBA or university project that reflects analysis, teamwork, communication, and presentation ability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section>
-<h2>Languages</h2>
+  <section>
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="card">
+        <div class="skills-grid">
+          <span class="chip">Project Coordination</span>
+          <span class="chip">HR Operations</span>
+          <span class="chip">Employee Engagement</span>
+          <span class="chip">Process Improvement</span>
+          <span class="chip">Database Management</span>
+          <span class="chip">Excel</span>
+          <span class="chip">MS Office</span>
+          <span class="chip">Canva</span>
+          <span class="chip">HRIS</span>
+          <span class="chip">Event Organization</span>
+          <span class="chip">Communication</span>
+          <span class="chip">Presentation</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p>
-English (Fluent) |
-Nepali (Fluent) |
-Hindi (Fluent) |
-Chinese (Intermediate) |
-Spanish (Learning)
-</p>
+  <section>
+    <div class="container">
+      <h2 class="section-title">Training & Certifications</h2>
+      <div class="card">
+        <div class="cert-grid">
+          <span class="chip">Innovation Management and Business Model Training</span>
+          <span class="chip">Social Security Fund (SSF) Training</span>
+          <span class="chip">Public Speaking & Presentation Training</span>
+          <span class="chip">JW Marriott “Symphony of Service” Training</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <section>
+    <div class="container">
+      <h2 class="section-title">Languages</h2>
+      <div class="card">
+        <div class="lang-grid">
+          <span class="chip">English (Fluent)</span>
+          <span class="chip">Nepali (Fluent)</span>
+          <span class="chip">Hindi (Fluent)</span>
+          <span class="chip">Chinese (Intermediate)</span>
+          <span class="chip">Spanish (Learning)</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-© 2026 Suman Bhandari
-</footer>
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Let’s Connect</h2>
+        <p>You can add your LinkedIn link and resume download here next.</p>
+        <div class="hero-buttons">
+          <a href="mailto:summbhan@gmail.com" class="btn btn-primary">Email Me</a>
+          <a href="https://www.linkedin.com/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    © 2026 Suman Bhandari
+  </div>
 
 </body>
 </html>
