@@ -109,7 +109,7 @@
     }
 
     .hero-text h1 {
-      font-size: 5.1rem;
+      font-size: 5rem;
       line-height: 1.02;
       margin-bottom: 18px;
       letter-spacing: -2px;
@@ -117,20 +117,20 @@
     }
 
     .typewriter-wrap {
-      min-height: 90px;
-      max-width: 760px;
+      min-height: 270px;
+      max-width: 780px;
       margin-bottom: 18px;
     }
 
     .typewriter {
-      font-size: 1.5rem;
+      font-size: 1.18rem;
       color: #e6ecff;
       font-weight: 500;
+      white-space: pre-line;
       border-right: 3px solid rgba(255,255,255,0.8);
-      white-space: normal;
-      display: inline;
       padding-right: 6px;
       animation: blinkCursor 0.8s infinite;
+      line-height: 1.8;
     }
 
     .hero-text .contact-line {
@@ -255,12 +255,6 @@
       color: #ffffff;
     }
 
-    .section-subtitle {
-      color: #cbd5e1;
-      margin-bottom: 28px;
-      max-width: 760px;
-    }
-
     .card {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.1);
@@ -268,13 +262,76 @@
       border-radius: 24px;
       padding: 28px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      margin-bottom: 24px;
+      margin-bottom: 18px;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
 
     .card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    }
+
+    .accordion {
+      margin-top: 18px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .accordion-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      backdrop-filter: blur(12px);
+      transition: 0.35s ease;
+    }
+
+    .accordion-item:hover {
+      box-shadow: 0 18px 40px rgba(0,0,0,0.24);
+    }
+
+    .accordion-header {
+      width: 100%;
+      background: transparent;
+      color: white;
+      border: none;
+      outline: none;
+      padding: 24px 26px;
+      text-align: left;
+      font-size: 1.15rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background: rgba(255,255,255,0.04);
+    }
+
+    .accordion-icon {
+      font-size: 1.5rem;
+      transition: transform 0.35s ease;
+      color: #dbeafe;
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.55s ease, padding 0.35s ease;
+      padding: 0 26px;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 2200px;
+      padding: 0 26px 26px;
     }
 
     .summary {
@@ -380,6 +437,24 @@
       margin: 12px 0 24px;
     }
 
+    .question-link {
+      margin-top: 26px;
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      transition: 0.35s ease;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .question-link:hover {
+      transform: translateY(-4px) scale(1.03);
+      background: rgba(255,255,255,0.18);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.22);
+    }
+
     .footer {
       text-align: center;
       padding: 30px 10px 40px;
@@ -459,7 +534,7 @@
       }
 
       .typewriter-wrap {
-        min-height: 120px;
+        min-height: 360px;
         margin-left: auto;
         margin-right: auto;
       }
@@ -485,7 +560,11 @@
       }
 
       .typewriter {
-        font-size: 1.15rem;
+        font-size: 1.02rem;
+      }
+
+      .typewriter-wrap {
+        min-height: 390px;
       }
 
       .hero-image {
@@ -513,6 +592,10 @@
       .hero-badge {
         font-size: 0.9rem;
       }
+
+      .accordion-header {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -531,8 +614,7 @@
         <p class="contact-line">Wheat Ridge, CO | +1 (929) 349-8176 | summbhan@gmail.com</p>
 
         <div class="hero-buttons">
-          <a href="#experience" class="btn btn-primary">View Experience</a>
-          <a href="#projects" class="btn btn-secondary">Projects</a>
+          <a href="#journey" class="btn btn-primary">Explore My Story</a>
           <a href="#contact" class="btn btn-secondary">Contact</a>
         </div>
 
@@ -551,166 +633,182 @@
     </div>
   </header>
 
-  <section class="fade-section">
+  <section id="journey" class="fade-section">
     <div class="container">
-      <h2 class="section-title">Professional Summary</h2>
-      <div class="card">
-        <p class="summary">
-          Inspired and flexible MBA student majoring in Project Leadership and Management with around
-          three years of experience in HR functions, project management, and organizational development
-          in multinational contexts including Alibaba Group and CG Corp Global. Experienced in stakeholder
-          coordination, process enhancement, and employee engagement. Passionate about people-centered leadership
-          and seeking opportunities to apply strategic, analytical, and collaborative skills in dynamic organizations.
-        </p>
-      </div>
-    </div>
-  </section>
+      <h2 class="section-title">My Journey</h2>
 
-  <section class="fade-section">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="card">
-        <div class="education-item">
-          <h3>Regis University, Denver, CO</h3>
-          <p class="meta">Master of Business Administration – Project Leadership & Management | Expected December 2026</p>
-        </div>
-        <div class="education-item">
-          <h3>Forbes College / University of Computer Sciences and Skills, Poland</h3>
-          <p class="meta">Bachelor of Management in Hospitality | Graduated 2022</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience" class="fade-section">
-    <div class="container">
-      <h2 class="section-title">Professional Experience</h2>
-
-      <div class="card">
-        <h3>Daraz (Alibaba Group) – Kathmandu, Nepal</h3>
-        <p class="meta">HRBP Specialist | Dec 2023 – Dec 2024</p>
-        <ul>
-          <li>Balanced HR operations for 500+ employees including onboarding, payroll, and attendance management.</li>
-          <li>Served as a liaison for the Voluntary Resignation Scheme (VRS) to ensure smooth and compliant execution.</li>
-          <li>Led HR processes for strategic initiatives such as the 11.11 Campaign and Free Delivery Initiative.</li>
-          <li>Increased employee participation through Joy @ Work programs and grievance resolution systems.</li>
-          <li>Managed HR databases, vendor coordination, and policy updates to support workflow efficiency.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Chaudhary Group (CG Corp Global) – Kathmandu, Nepal</h3>
-        <p class="meta">HRBP – Corporate Office | Jun 2022 – Dec 2023</p>
-        <ul>
-          <li>Managed recruiting, onboarding, and succession planning across several business verticals.</li>
-          <li>Created KPI systems, HR reports, and organizational charts using MS Visio.</li>
-          <li>Planned and hosted learning and engagement activities to improve cross-departmental collaboration.</li>
-          <li>Supported policy changes, training initiatives, and HR process documentation.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>CG Hospitality – Meghauli Serai (Taj Safaris)</h3>
-        <p class="meta">HR Executive (Intern-to-Full Time) | Jun 2021 – May 2022</p>
-        <ul>
-          <li>Handled recruitment, employee records, payroll management, and employee performance processes.</li>
-          <li>Supported employee training, termination processes, and HR reporting for 100+ employees.</li>
-          <li>Conducted involvement and training initiatives to strengthen morale and retention.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Nepal Can Move (NCM)</h3>
-        <p class="meta">HR Intern | May 2022 – Jun 2022</p>
-        <ul>
-          <li>Supported logistics team recruitment, route planning, and staff attendance systems.</li>
-          <li>Maintained complaint management and documentation processes.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>JW Marriott Marquis, Dubai</h3>
-        <p class="meta">HR & Guest Services Intern | May 2021 – May 2022</p>
-        <ul>
-          <li>Supported orientation and onboarding for 200+ employees across departments.</li>
-          <li>Organized learning courses and maintained HR and training records.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="fade-section">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-subtitle">
-        Add your best academic, leadership, and HR-related projects here to make the portfolio stronger for internships and professional opportunities.
-      </p>
-
-      <div class="projects-wrapper">
-        <div class="project-card">
-          <h3>HR Process Improvement Project</h3>
-          <p>Showcase workflow improvement, documentation structure, and employee system enhancement.</p>
+      <div class="accordion">
+        <div class="accordion-item active">
+          <button class="accordion-header">
+            Education
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="card">
+              <div class="education-item">
+                <h3>Regis University, Denver, CO</h3>
+                <p class="meta">Master of Business Administration – Project Leadership & Management | Expected December 2026</p>
+              </div>
+              <div class="education-item">
+                <h3>Forbes College / University of Computer Sciences and Skills, Poland</h3>
+                <p class="meta">Bachelor of Management in Hospitality | Graduated 2022</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="project-card">
-          <h3>Employee Engagement Initiative</h3>
-          <p>Highlight programs like Joy @ Work to show leadership, communication, and people skills.</p>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Professional Experience
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="card">
+              <div class="experience-item">
+                <h3>Daraz (Alibaba Group) – Kathmandu, Nepal</h3>
+                <p class="meta">HRBP Specialist | Dec 2023 – Dec 2024</p>
+                <ul>
+                  <li>Balanced HR operations for 500+ employees including onboarding, payroll, and attendance management.</li>
+                  <li>Served as a liaison for the Voluntary Resignation Scheme (VRS) to ensure smooth and compliant execution.</li>
+                  <li>Led HR processes for strategic initiatives such as the 11.11 Campaign and Free Delivery Initiative.</li>
+                  <li>Increased employee participation through Joy @ Work programs and grievance resolution systems.</li>
+                  <li>Managed HR databases, vendor coordination, and policy updates to support workflow efficiency.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="experience-item">
+                <h3>Chaudhary Group (CG Corp Global) – Kathmandu, Nepal</h3>
+                <p class="meta">HRBP – Corporate Office | Jun 2022 – Dec 2023</p>
+                <ul>
+                  <li>Managed recruiting, onboarding, and succession planning across several business verticals.</li>
+                  <li>Created KPI systems, HR reports, and organizational charts using MS Visio.</li>
+                  <li>Planned and hosted learning and engagement activities to improve cross-departmental collaboration.</li>
+                  <li>Supported policy changes, training initiatives, and HR process documentation.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="experience-item">
+                <h3>CG Hospitality – Meghauli Serai (Taj Safaris)</h3>
+                <p class="meta">HR Executive (Intern-to-Full Time) | Jun 2021 – May 2022</p>
+                <ul>
+                  <li>Handled recruitment, employee records, payroll management, and employee performance processes.</li>
+                  <li>Supported employee training, termination processes, and HR reporting for 100+ employees.</li>
+                  <li>Conducted involvement and training initiatives to strengthen morale and retention.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="experience-item">
+                <h3>Nepal Can Move (NCM)</h3>
+                <p class="meta">HR Intern | May 2022 – Jun 2022</p>
+                <ul>
+                  <li>Supported logistics team recruitment, route planning, and staff attendance systems.</li>
+                  <li>Maintained complaint management and documentation processes.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="experience-item">
+                <h3>JW Marriott Marquis, Dubai</h3>
+                <p class="meta">HR & Guest Services Intern | May 2021 – May 2022</p>
+                <ul>
+                  <li>Supported orientation and onboarding for 200+ employees across departments.</li>
+                  <li>Organized learning courses and maintained HR and training records.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="project-card">
-          <h3>Academic Leadership Project</h3>
-          <p>Add an MBA project that reflects teamwork, analysis, and presentation ability.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Featured Projects
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="projects-wrapper">
+              <div class="project-card">
+                <h3>HR Process Improvement Project</h3>
+                <p>Showcase workflow improvement, documentation structure, and employee system enhancement.</p>
+              </div>
 
-  <section class="fade-section">
-    <div class="container">
-      <h2 class="section-title">Skills</h2>
-      <div class="card">
-        <div class="skills-grid">
-          <span class="chip">Project Coordination</span>
-          <span class="chip">HR Operations</span>
-          <span class="chip">Employee Engagement</span>
-          <span class="chip">Process Improvement</span>
-          <span class="chip">Database Management</span>
-          <span class="chip">Excel</span>
-          <span class="chip">MS Office</span>
-          <span class="chip">Canva</span>
-          <span class="chip">HRIS</span>
-          <span class="chip">Event Organization</span>
-          <span class="chip">Communication</span>
-          <span class="chip">Presentation</span>
-        </div>
-      </div>
-    </div>
-  </section>
+              <div class="project-card">
+                <h3>Employee Engagement Initiative</h3>
+                <p>Highlight programs like Joy @ Work to show leadership, communication, and people skills.</p>
+              </div>
 
-  <section class="fade-section">
-    <div class="container">
-      <h2 class="section-title">Training & Certifications</h2>
-      <div class="card">
-        <div class="cert-grid">
-          <span class="chip">Innovation Management and Business Model Training</span>
-          <span class="chip">Social Security Fund (SSF) Training</span>
-          <span class="chip">Public Speaking & Presentation Training</span>
-          <span class="chip">JW Marriott “Symphony of Service” Training</span>
+              <div class="project-card">
+                <h3>Academic Leadership Project</h3>
+                <p>Add an MBA project that reflects teamwork, analysis, and presentation ability.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="fade-section">
-    <div class="container">
-      <h2 class="section-title">Languages</h2>
-      <div class="card">
-        <div class="lang-grid">
-          <span class="chip">English (Fluent)</span>
-          <span class="chip">Nepali (Fluent)</span>
-          <span class="chip">Hindi (Fluent)</span>
-          <span class="chip">Chinese (Intermediate)</span>
-          <span class="chip">Spanish (Learning)</span>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Skills
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="card">
+              <div class="skills-grid">
+                <span class="chip">Project Coordination</span>
+                <span class="chip">HR Operations</span>
+                <span class="chip">Employee Engagement</span>
+                <span class="chip">Process Improvement</span>
+                <span class="chip">Database Management</span>
+                <span class="chip">Excel</span>
+                <span class="chip">MS Office</span>
+                <span class="chip">Canva</span>
+                <span class="chip">HRIS</span>
+                <span class="chip">Event Organization</span>
+                <span class="chip">Communication</span>
+                <span class="chip">Presentation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Training & Certifications
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="card">
+              <div class="cert-grid">
+                <span class="chip">Innovation Management and Business Model Training</span>
+                <span class="chip">Social Security Fund (SSF) Training</span>
+                <span class="chip">Public Speaking & Presentation Training</span>
+                <span class="chip">JW Marriott “Symphony of Service” Training</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Languages
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="card">
+              <div class="lang-grid">
+                <span class="chip">English (Fluent)</span>
+                <span class="chip">Nepali (Fluent)</span>
+                <span class="chip">Hindi (Fluent)</span>
+                <span class="chip">Chinese (Intermediate)</span>
+                <span class="chip">Spanish (Learning)</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -727,6 +825,10 @@
           <a href="https://www.instagram.com/bunnybhandari1/" target="_blank" class="btn btn-secondary">Instagram</a>
           <a href="https://www.facebook.com/sumnbhan" target="_blank" class="btn btn-secondary">Facebook</a>
         </div>
+
+        <a class="question-link" href="https://docs.google.com/forms/d/e/1FAIpQLSc-Ko8PZhysGyY0foLrUG64XdeQkJMUxyYvuXjN0wKuPF0x2g/viewform?usp=publish-editor" target="_blank">
+          Have a question - click here
+        </a>
       </div>
     </div>
   </section>
@@ -750,19 +852,37 @@
       appearOnScroll.observe(section);
     });
 
-    const text = "Driven by creativity, impact, and people-centered leadership in HR, operations, and professional growth.";
+    const text = `Hi, I’m Suman Bhandari.
+An MBA student who has tasted the world of hospitality and grinded through the field of Human Resources, learning the art of people, pressure, and persistence along the way. Some chapters of my life happen in boardrooms, the rest somewhere between flights and faraway roads.
+
+But the real story begins outside the routine. In mountains, unfamiliar cities, and quiet moments of travel where the world feels bigger than plans. That’s where I collect stories… and sometimes turn them into poems.
+
+Still exploring.
+Still writing.
+Still becoming the story. 🎬✨`;
+
     const typewriter = document.getElementById("typewriter");
     let i = 0;
 
     function typeEffect() {
       if (i < text.length) {
-        typewriter.innerHTML += text.charAt(i);
+        typewriter.innerHTML += text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
         i++;
-        setTimeout(typeEffect, 45);
+        setTimeout(typeEffect, 22);
       }
     }
 
     window.addEventListener("load", typeEffect);
+
+    const accordionItems = document.querySelectorAll(".accordion-item");
+
+    accordionItems.forEach((item) => {
+      const header = item.querySelector(".accordion-header");
+
+      header.addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    });
   </script>
 </body>
 </html>
